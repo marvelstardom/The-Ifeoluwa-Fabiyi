@@ -7,7 +7,7 @@ function NavLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="transition hover:text-teal-500 dark:hover:text-teal-400"
+      className="transition hover:text-teal-500 dark:hover:text-teal-400 p-3"
     >
       {children}
     </Link>
@@ -24,9 +24,9 @@ export function Footer() {
               <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 <ul className="flex rounded-full bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:bg-zinc-800/90 dark:text-zinc-200 dark:ring-white/10">
                   <NavLink href="/about">About</NavLink>
-                  <NavLink href="/fashion">Fashion</NavLink>
+                  {/* <NavLink href="/uses">Fashion</NavLink> */}
                   <NavLink href="/articles">Articles</NavLink>
-                  <NavLink href="/works">Works</NavLink>
+                  {/* <NavLink href="/projects">Works</NavLink> */}
                   <NavLink href="/contact">Contact</NavLink>
                 </ul>
               </div>
