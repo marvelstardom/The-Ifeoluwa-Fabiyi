@@ -3,8 +3,34 @@ import emailjs from '@emailjs/browser';
 import Head from 'next/head'
 import { useState } from 'react';
 import { Container } from '@/components/Container';
-// import Link from 'next/link'
-// import clsx from 'clsx'
+
+import Link from 'next/link'
+import clsx from 'clsx'
+
+function SocialLink({ className, href, children, icon: Icon }) {
+  return (
+    <li className={clsx(className, 'flex')}>
+      <Link
+        href={href}
+        className="group flex text-sm font-medium text-zinc-800 transition hover:text-teal-500 dark:text-zinc-200 dark:hover:text-teal-500"
+      >
+        <Icon className="h-6 w-6 flex-none fill-zinc-500 transition group-hover:fill-teal-500" />
+        <span className="ml-4">{children}</span>
+      </Link>
+    </li>
+  )
+}
+
+function MailIcon(props) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        d="M6 5a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H6Zm.245 2.187a.75.75 0 0 0-.99 1.126l6.25 5.5a.75.75 0 0 0 .99 0l6.25-5.5a.75.75 0 0 0-.99-1.126L12 12.251 6.245 7.187Z"
+      />
+    </svg>
+  )
+}
 
 export default function ContactUs() {
     const form = useRef();
@@ -22,7 +48,6 @@ export default function ContactUs() {
 
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
     return (
@@ -37,8 +62,15 @@ export default function ContactUs() {
       <Container className="mt-20 sm:mt-32">
         <div className="grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:grid-rows-[auto_1fr] lg:gap-y-12">
         <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">Lets talk about your projects!</h1>
+            <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">Lets connect!</h1>
             <p className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">Reach out to me by filling the form, I will respond as soon as I can. Alternatively, you can reach out to me at my email address.</p>
+            <SocialLink
+                href="mailto:oluwajuwonife@gmail.com"
+                icon={MailIcon}
+                className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
+              >
+                oluwajuwonife@gmail.com
+              </SocialLink>
         </div>
         <form
           onSubmit={sendEmail}
@@ -69,18 +101,6 @@ export default function ContactUs() {
             }}
             className="form-input min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white mb-4 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
           />
-{/* 
-          <input
-            type="text"
-            name="subject"
-            placeholder='Subject*'
-            value={subject}
-            onChange={(e) => {
-              setSubject(e.target.value);
-            }}
-            className="form-input min-w-0 flex-auto appearance-none rounded-md border border-zinc-900/10 bg-white mb-4 shadow-md shadow-zinc-800/5 placeholder:text-zinc-400 focus:border-teal-500 focus:outline-none focus:ring-4 focus:ring-teal-500/10 dark:border-zinc-700 dark:bg-zinc-700/[0.15] dark:text-zinc-200 dark:placeholder:text-zinc-500 dark:focus:border-teal-400 dark:focus:ring-teal-400/10 sm:text-sm"
-          />
-          */}
           
           <textarea
             name="message"
@@ -95,22 +115,9 @@ export default function ContactUs() {
           <div className="flex flex-row items-center justify-start">
             <button
               type="submit"
-              className="px-10 mt-4 py-2 bg-[#14b8a6] font-bold rounded-md text-lg flex flex-row items-center text-zinc-50 dark:text-black"
+              className="px-10 mt-4 py-2 bg-[#14b8a6] font-bold rounded-md text-md flex flex-row items-center text-zinc-50 dark:text-black"
             >
               Submit
-              {/* <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                className="text-cyan-500 ml-2"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.00967 5.12761H11.0097C12.1142 5.12761 13.468 5.89682 14.0335 6.8457L16.5089 11H21.0097C21.562 11 22.0097 11.4477 22.0097 12C22.0097 12.5523 21.562 13 21.0097 13H16.4138L13.9383 17.1543C13.3729 18.1032 12.0191 18.8724 10.9145 18.8724H8.91454L12.4138 13H5.42485L3.99036 15.4529H1.99036L4.00967 12L4.00967 11.967L2.00967 8.54712H4.00967L5.44417 11H12.5089L9.00967 5.12761Z"
-                  fill="currentColor"
-                />
-              </svg> */}
             </button>
           </div>
         </form>

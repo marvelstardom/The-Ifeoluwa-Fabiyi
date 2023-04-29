@@ -34,7 +34,7 @@ export function Footer() {
                 &copy; {new Date().getFullYear()} The Ifeoluwa Fabiyi. All
                 rights reserved.
                 <br />
-                Designed by <a href="https://stardomdigital.netlify.app/" target=''>Stardom Digital.</a>
+                Designed by <Link href="https://stardomdigital.netlify.app/" target='_blank' className='text-teal-500'>Stardom Digital.</Link>
               </p>
             </div>
           </Container.Inner>
