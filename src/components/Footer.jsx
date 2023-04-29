@@ -33,6 +33,8 @@ export function Footer() {
               <p className="text-sm text-zinc-400 dark:text-zinc-500">
                 &copy; {new Date().getFullYear()} The Ifeoluwa Fabiyi. All
                 rights reserved.
+                <br />
+                Designed by <a href="https://stardomdigital.netlify.app/" target=''>Stardom Digital.</a>
               </p>
             </div>
           </Container.Inner>

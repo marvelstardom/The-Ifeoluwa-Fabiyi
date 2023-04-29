@@ -44,7 +44,7 @@ export default function About() {
         <title>About - The Ifeoluwa Fabiyi</title>
         <meta
           name="description"
-          content="I’m Spencer Sharp. I live in New York City, where I design the future."
+          content="All of my long-form thoughts on faith, lifestyle, leadership, fashion, drugs and more, collected in chronological order."
         />
       </Head>
       <Container className="mt-16 sm:mt-32">
@@ -64,12 +64,22 @@ export default function About() {
               About Me.
             </h1>
             <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
-              Ifeoluwa Fabiyi is a Polymath. He is an individual that can best be
-              described as having one purpose finding expressions in Multiple
-              Ways. He is an author with several published works, he is a
-              Transformational Speaker and an advocate of Drug Free Society. He
-              shares his ideas and world view via his teachings in Seminars,
-              Workshop, Conferences and Books.
+              <p>Ifeoluwa Fabiyi is a Polymath. He is an African of Nigeria origin, a Transformational Speaker of International Repute, an Author, Social Entrepreneur and an advocate of Drug Free Society.</p>
+
+              <p>Ifective as he is fondly called by his friends and proteges is passionately committed to what he tagged: SSDS a (safe, secure & drug free society) where citizens can achieve optimum productivity and maximization of potentials without fear or threat to life.</p>
+
+              <p>He is pursuing these objectives through his speaking engagement in Schools, Conferences, Workshops, Seminars, Mentorship programs, and Social Impact efforts where he awards scholarships to indigent students.</p>
+                
+              <p>He is an individual that can best be described as having one purpose finding expressions in Multiple Ways. He is an author with several published works.
+              He has been a featured guest on popular radio Stations in Nigeria such as Royal FM, Ilorin, Fresh FM Ado-Ekiti etc. 
+              He writes on Faith, Relationship, Leadership, and most importantly on Anti-drug Advocacy.</p>
+              
+              
+              <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
+                <h3><b>EDUCATION</b></h3>
+              <p>Ifeoluwa Fabiyi started his educational journey in his home town at St Luke Primary School, Obbo-Ile, Ekiti LGA of  Kwara State and completed it at St. Michael African Primary School, Ibadan (1998 -2004) and graduated to Baptist Grammar School, Ibadan (2004-2010). He obtained his Bachelor of Education Degree in Guidance and Counseling with English Language, from the prestigious University of Ilorin, Ilorin, Kwara State, Nigeria. 
+              </p>
+              </div>
             </div>
           </div>
           <div className="lg:pl-20">
@@ -100,3 +110,4 @@ export default function About() {
     </>
   )
 }
+

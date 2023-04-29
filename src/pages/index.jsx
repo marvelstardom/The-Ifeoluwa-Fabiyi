@@ -1,3 +1,5 @@
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -13,10 +15,10 @@ import {
   TwitterIcon,
 } from '@/components/SocialIcons'
 import image1 from '@/images/WADA/1.jpg'
-import image2 from '@/images/WADA/2.jpg'
+import image2 from '@/images/WADA/ife-royal.jpg'
 import image3 from '@/images/WADA/3.jpg'
-import image4 from '@/images/WADA/4.jpg'
-import image5 from '@/images/photos/image-2.jpg'
+import image4 from '@/images/WADA/2.jpg'
+import image5 from '@/images/WADA/4.jpg'
 import { formatDate } from '@/lib/formatDate'
 import { generateRssFeed } from '@/lib/generateRssFeed'
 import { getAllArticles } from '@/lib/getAllArticles'
@@ -104,9 +106,23 @@ function SocialLink({ icon: Icon, ...props }) {
 }
 
 function Newsletter() {
+
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_kk6lwhe', 'template_1r3ewsb', form.current, 'pHgNWn0Ra-fUghkVV')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+  };
+
   return (
-    <form
-      action="/thank-you"
+    <form ref={form} onSubmit={sendEmail} 
+      action="/thank-you" method='POST' id='emailForm'
       className="rounded-2xl border border-zinc-100 p-6 dark:border-zinc-700/40"
     >
       <h2 className="flex text-sm font-semibold text-zinc-900 dark:text-zinc-100">
@@ -118,6 +134,7 @@ function Newsletter() {
       </p>
       <div className="mt-6 flex">
         <input
+          id='userEmail'
           type="email"
           placeholder="Email address"
           aria-label="Email address"
@@ -176,14 +193,6 @@ export default function Home({ articles }) {
           <h2 className="mt-2 text-base text-zinc-600 dark:text-zinc-400 uppercase">
             Author, Transformational Speaker, Anti-Drug Advocate.
           </h2>
-          {/* <h2>
-            Ifeoluwa Fabiyi is a Polymath. He is an individual that can best be
-            described as having one purpose finding expressions in Multiple
-            Ways. He is an author with several published works, he is a
-            Transformational Speaker and an advocate of Drug Free Society. He
-            shares his ideas and world view via his teachings in Seminars,
-            Workshop, Conferences and Books.
-          </h2> */}
           
           <div className="mt-6 flex gap-6">
             <SocialLink
